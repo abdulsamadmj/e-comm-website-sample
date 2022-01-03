@@ -1,0 +1,41 @@
+<section>
+    <div class="container">
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+
+                    <td><img src="/product-images/{{this.product._id}}.png" style="width: 4rem;height: 3rem;" alt="">
+                    </td>
+                    <td>{{this.product.name}}</td>
+                    <td>Rs.{{this.product.price}}/-</td>
+                    <td>
+                        <button class="btn btn-info mr-3"
+                            onclick="changeQuantity('{{this._id}}','{{this.product._id}}',-1)">-</button>
+                        <span id="{{this.product._id}}">{{this.quantity}}</span>
+                        <button class="btn btn-info ml-3"
+                            onclick="changeQuantity('{{this._id}}','{{this.product._id}}',1)">+</button>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-danger">Remove</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr>
+        <div class="float-right pt-4 pr-5">
+            <h4 class="">TOTAL:Rs. 100000/-</h4>
+            <a href="/place-order" class="btn btn-success text-center font-weight-bold" style="width: 13rem;">Place Order</a>
+        </div>
+    </div>
+</section>
